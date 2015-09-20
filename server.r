@@ -12,18 +12,22 @@ shinyServer(
         need(input$idcvs != "", "Please select at least one Covariant")
       )
       lm(paste("mpg ~", paste(input$idcvs, collapse = "+"))   , mtcars)
+      
+      #output$oid3 <- renderText({model1()$coefficients})
     })
 
-    output$oid3 <- renderText({model1()$coefficients})
+    output$oid3 <- renderText({
+      if (is.null(input$idcvs)) return()
+      model1()$coefficients
+      })
     
     output$oplot <- renderPlot({
-      if (is.null(model1())) return()
+      if (is.null(input$idcvs)) return()
       par(mfrow = c(2, 2))
-      
-      plot(m, which = 1:4, caption = c("Residuals vs Fitted", "Normal Q-Q plot", "Scale-Location plot", 
-                          "Cook's distance plot"), panel = points, sub.caption = deparse(m$call), main = "",
+      plot(model1(), which = 1:4, caption = c("Residuals vs Fitted", "Normal Q-Q plot", "Scale-Location plot", 
+                          "Cook's distance plot"), panel = points, sub.caption = deparse(model1()$call), main = "",
                           ask = prod(par("mfcol")) < length(which) && dev.interactive(),
-           id.n = 3, labels.id = names(residuals(m)), cex.id = 0.75)
+           id.n = 3, labels.id = names(residuals(model1())), cex.id = 0.75)
       #plot(mtcars$mpg,mtcars$cyl)
     })
   }

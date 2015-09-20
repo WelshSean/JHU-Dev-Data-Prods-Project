@@ -6,8 +6,15 @@ shinyUI(pageWithSidebar(
     checkboxGroupInput("idcvs", "Checkbox",
                        c("cyl" = "cyl",
                          "disp" = "disp",
-                         "hp" = "hp")),
-    actionButton("calcbutton", "Build Model")
+                         "hp" = "hp",
+                        "drat" = "drat",
+                        "wt" = "wt",
+                        "qsec" = "qsec",
+                        "vs" = "vs",
+                        "am" = "am",
+                        "gear" = "gear",
+                        "carb" = "carb")),
+    actionButton("calcbutton", "Evaluate Model")
   ),
   mainPanel(
     h3("Main Panel text"),
