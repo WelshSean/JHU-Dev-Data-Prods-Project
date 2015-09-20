@@ -14,7 +14,9 @@ shinyUI(pageWithSidebar(
     h4("You entered"),
     verbatimTextOutput("oid1"),
     h4("Modelling String"),
-    verbatimTextOutput("oid2")
+    verbatimTextOutput("oid2"),
+    h4("Coefficients"),
+    verbatimTextOutput("oid3")
   )
 )
 )
