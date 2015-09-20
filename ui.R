@@ -16,7 +16,8 @@ shinyUI(pageWithSidebar(
     h4("Modelling String"),
     verbatimTextOutput("oid2"),
     h4("Coefficients"),
-    verbatimTextOutput("oid3")
+    verbatimTextOutput("oid3"),
+    plotOutput("oplot")
   )
 )
 )

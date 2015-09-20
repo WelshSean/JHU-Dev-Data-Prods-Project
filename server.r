@@ -1,4 +1,6 @@
 library(shiny)
+library(ggfortify)
+library(ggplot2)
 data("mtcars")
 shinyServer(
   function(input, output){
@@ -13,5 +15,16 @@ shinyServer(
     })
 
     output$oid3 <- renderText({model1()$coefficients})
+    
+    output$oplot <- renderPlot({
+      if (is.null(model1())) return()
+      par(mfrow = c(2, 2))
+      
+      plot(m, which = 1:4, caption = c("Residuals vs Fitted", "Normal Q-Q plot", "Scale-Location plot", 
+                          "Cook's distance plot"), panel = points, sub.caption = deparse(m$call), main = "",
+                          ask = prod(par("mfcol")) < length(which) && dev.interactive(),
+           id.n = 3, labels.id = names(residuals(m)), cex.id = 0.75)
+      #plot(mtcars$mpg,mtcars$cyl)
+    })
   }
 )
