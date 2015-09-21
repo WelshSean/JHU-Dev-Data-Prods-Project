@@ -13,15 +13,16 @@ shinyServer(
       lm(paste("mpg ~", paste(input$idcvs, collapse = "+"))   , mtcars)
       
     })
+    
     observe({
       if(input$calcbutton > 0){
 
-    output$oid3 <- renderText({
-      oo <- NULL
-      for (i in names(model1()$coefficients)){
-        oo <- c(oo,paste(c(i,model1()$coefficients[i]),collapse = ": "))
-      } 
-      oo
+        output$oid3 <- renderText({
+          oo <- NULL
+          for (i in names(model1()$coefficients)){
+            oo <- c(oo,paste(c(i,model1()$coefficients[i]),collapse = ": "))
+          } 
+          oo
       })
 
 
