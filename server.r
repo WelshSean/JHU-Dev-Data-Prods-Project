@@ -4,7 +4,7 @@ library(ggplot2)
 data("mtcars")
 shinyServer(
   function(input, output){
-    output$oid2 <- renderText({paste(input$idcvs, collapse = "+")})
+    output$oid2 <- renderText({paste("mpg ~ ", paste(input$idcvs, collapse = "+"))})
  
     model1 <- eventReactive(input$calcbutton, {
       validate(
