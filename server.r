@@ -4,7 +4,6 @@ library(ggplot2)
 data("mtcars")
 shinyServer(
   function(input, output){
-    output$oid1 <- renderText({input$idcvs})
     output$oid2 <- renderText({paste(input$idcvs, collapse = "+")})
  
     model1 <- eventReactive(input$calcbutton, {

@@ -18,8 +18,6 @@ shinyUI(pageWithSidebar(
   ),
   mainPanel(
     h3("Main Panel text"),
-    h4("You entered"),
-    verbatimTextOutput("oid1"),
     h4("Modelling String"),
     verbatimTextOutput("oid2"),
     h4("Coefficients"),
