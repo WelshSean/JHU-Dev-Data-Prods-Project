@@ -18,8 +18,14 @@ shinyServer(
 
     output$oid3 <- renderText({
       if (is.null(input$idcvs)) return()
-      model1()$coefficients
+      #model1()$coefficients
+      oo <- NULL
+      for (i in names(model1()$coefficients)){
+        oo <- c(oo,paste(c(i,model1()$coefficients[i]),collapse = ": "))
+      }
+      oo
       })
+
     
     output$oplot <- renderPlot({
       if (is.null(input$idcvs)) return()
