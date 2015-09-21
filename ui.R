@@ -3,7 +3,7 @@ shinyUI(pageWithSidebar(
   headerPanel("Interactive Modelling mtcars Data"),
   sidebarPanel(
     h3("Select Covariants"),
-    checkboxGroupInput("idcvs", "Checkbox",
+    checkboxGroupInput("idcvs", NULL,
                        c("cyl" = "cyl",
                          "disp" = "disp",
                          "hp" = "hp",

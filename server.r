@@ -15,15 +15,16 @@ shinyServer(
     })
     observe({
       if(input$calcbutton > 0){
+
     output$oid3 <- renderText({
       oo <- NULL
       for (i in names(model1()$coefficients)){
         oo <- c(oo,paste(c(i,model1()$coefficients[i]),collapse = ": "))
-      }
+      } 
       oo
       })
- # }
-  #  })
+
+
 
     
     output$oplot <- renderPlot({
@@ -34,7 +35,7 @@ shinyServer(
                           ask = prod(par("mfcol")) < length(which) && dev.interactive(),
            id.n = 3, labels.id = names(residuals(model1())), cex.id = 0.75)
     })
-      }
-    })#
+      } 
+    }) # End Observe
   }
 )
