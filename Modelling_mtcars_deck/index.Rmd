@@ -1,0 +1,79 @@
+---
+title       : Exploring mtcars With Slidify
+subtitle    : 
+author      : Sean Clarke
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, shiny, interactive]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Overview
+
+* mtcars is one of the test datasets that can be loaded into R
+* It was extracted from the 1974 Motor trend US Magazine
+* A useful, manageable dataset for exploration
+* This application sets out to allow the user to evaluate linear models for mtcars
+* It also allows the user to pick which of the covariants  are included in the model
+
+
+
+--- .class #id 
+
+## Features in the mtcars Dataset
+
+```{r  echo=FALSE}
+data("mtcars")
+str(mtcars)
+```
+
+---
+
+## Why build this Application?
+
+* The application could serve as a useful learning aid for statistics students studying Linear Models
+* Provides a convenient way to play with a linear model for people who are interested
+* Provides a Minimal Viable Product(MVP) from which we could iterate to build a much more fully featured, useful application.
+
+---
+
+
+
+## The Problem that this application solves
+
+The application solves the linear model problem using the lm function in R. \
+
+The tickboxes can be used to build formula that the lm function expects of the form y ~ a+b+c. 
+
+$$
+y_{i} = \beta_{0} + \beta_{1}X_{i} \cdots  + \beta_{n}X_{n} + \epsilon
+$$
+
+The application supplies the user with $\beta_{0}, \beta{1} \cdots \beta_{n}$
+
+---
+
+## Further work
+
+* Ability to select other models
+* Ability to toggle verbose output to see errors, p-values, etc
+* Ability to use model to carry out predictions.
+
+---
+
+## The App Itself
+
+#```{r, echo = FALSE, cache=FALSE}
+#library(shiny)
+#shinyAppDir(
+#  "/Users/Sean/Coursera_DataScience/JHU-Dev-Data-Prods-Project",
+#  options=list(
+#    width="100%", height=700
+#  )
+#)
+#```
+
+---
