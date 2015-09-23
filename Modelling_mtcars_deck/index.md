@@ -1,9 +1,10 @@
 ---
-title       : Exploring mtcars With Slidify
+title       : Model Fuel Efficiency Using the  mtcars Dataset and Shiny
 subtitle    : 
 author      : Sean Clarke
 job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+framework   : deckjs        # {io2012, html5slides, shower, dzslides, ...}
+deckjs: {theme: web-2.0, transition: horizontal-slide}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax, shiny, interactive]            # {mathjax, quiz, bootstrap}
@@ -16,10 +17,9 @@ knit        : slidify::knit2slides
 * mtcars is one of the test datasets that can be loaded into R
 * It was extracted from the 1974 Motor trend US Magazine
 * A useful, manageable dataset for exploration
-* This application sets out to allow the user to evaluate linear models for mtcars
-* It also allows the user to pick which of the covariants  are included in the model
-
-
+* This application sets out to allow the user to explore possible Linear Models for the fuel efficiency and its dependencies on the other variables in the mtcars dataset.
+* The code for this presentation can be found on [Github](https://github.com/WelshSean/JHU-Dev-Data-Prods-Project/blob/master/Modelling_mtcars_deck/index.Rmd)
+* The R code for the Shiny application is also available in the same [Repo](https://github.com/WelshSean/JHU-Dev-Data-Prods-Project)
 
 --- .class #id 
 
@@ -43,6 +43,28 @@ knit        : slidify::knit2slides
 
 ---
 
+## The Problem that this application solves
+
+The application solves the linear model of the form shown below using the lm function in R. 
+
+$$
+y_{i} = \beta_{0} + \beta_{1}\phi_{i}(X_{i}) \cdots  + \beta_{n}\phi_{n}(X_{n}) + \epsilon
+$$
+
+The models that can be solved are at present limited to those of the form $\phi_{i}(X_{i})= X_{i}$
+
+The tickboxes can be used to build formula that the lm function expects of the form y ~ a+b+c in order to tell R which covariates to include in the model. 
+
+
+The application returns the values for  $\beta_{0}, \beta{1} \cdots \beta_{n}$ to the user.
+
+This allows the user to use the model to make predictions if they so wish
+
+The application also returns the [Standard R Diagnostics](http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/R/R5_Correlation-Regression/R5_Correlation-Regression7.html) plot to the user in order to allow them to judge the validity of the model if they know enough about Linear Models to intepret the plot. 
+
+---
+
+
 ## Why build this Application?
 
 * The application could serve as a useful learning aid for statistics students studying Linear Models
@@ -52,39 +74,11 @@ knit        : slidify::knit2slides
 ---
 
 
-
-## The Problem that this application solves
-
-The application solves the linear model problem using the lm function in R. \
-
-The tickboxes can be used to build formula that the lm function expects of the form y ~ a+b+c. 
-
-$$
-y_{i} = \beta_{0} + \beta_{1}X_{i} \cdots  + \beta_{n}X_{n} + \epsilon
-$$
-
-The application supplies the user with $\beta_{0}, \beta{1} \cdots \beta_{n}$
-
----
-
 ## Further work
 
 * Ability to select other models
 * Ability to toggle verbose output to see errors, p-values, etc
 * Ability to use model to carry out predictions.
+* Ability to evaluate Linear Models other than the case $\phi_{i}(X_{i})$ other than $\phi_{i}(X_{i})= X_{i}$
 
----
 
-## The App Itself
-
-#```{r, echo = FALSE, cache=FALSE}
-#library(shiny)
-#shinyAppDir(
-#  "/Users/Sean/Coursera_DataScience/JHU-Dev-Data-Prods-Project",
-#  options=list(
-#    width="100%", height=700
-#  )
-#)
-#```
-
----
