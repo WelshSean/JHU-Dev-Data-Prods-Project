@@ -79,6 +79,6 @@ The application also returns the [Standard R Diagnostics](http://sphweb.bumc.bu.
 * Ability to select other models
 * Ability to toggle verbose output to see errors, p-values, etc
 * Ability to use model to carry out predictions.
-* Ability to evaluate Linear Models other than the case $\phi_{i}(X_{i})$ other than $\phi_{i}(X_{i})= X_{i}$
+* Ability to evaluate Linear Models other than the case $\phi_{i}(X_{i})= X_{i}$
 
 
